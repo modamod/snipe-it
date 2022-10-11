@@ -12,7 +12,7 @@ services:
     ports:
     - "8000:80"
     volumes:
-    - .:/var/www/html
+    - ./vendor:/var/www/html/vendor
     depends_on:
     - mariadb
     - redis
