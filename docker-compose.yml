@@ -13,6 +13,7 @@ services:
     - "8000:80"
     volumes:
     - ./logs:/var/www/html/storage/logs
+    - ./vendor:/var/www/html/vendor
     depends_on:
     - mariadb
     - redis
