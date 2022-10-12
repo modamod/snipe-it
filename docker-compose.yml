@@ -14,7 +14,7 @@ services:
     volumes:
     # the /tmp/snipe-it is a synced folder using rsync.
     # this is needed due to the permission changes applied by docker when mounting afolder
-    - /tmp/snipe-it:/var/www/html/storage/logs
+    - /tmp/snipe-it:/var/www/html
     depends_on:
     - mariadb
     - redis
