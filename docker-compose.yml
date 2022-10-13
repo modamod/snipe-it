@@ -44,6 +44,15 @@ services:
     - "8025:8025"
     networks:
     - snipeit-backend
+  nginx:
+    image: nginx:alpine
+    ports:
+    - "80:80"
+    networks:
+    - snipeit-backend
+    volumes:
+      - ${PWD}/default.conf:/etc/nginx/conf.d/default.conf
+      - ${PWD}/nginx.conf:/etc/nginx/nginx.conf
 
 
 volumes:
