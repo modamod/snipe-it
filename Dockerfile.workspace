@@ -69,9 +69,9 @@ WORKDIR /var/www/html
 
 #copy all configuration files
 # COPY docker/*.php /var/www/html/app/config/production/
-COPY docker/docker.env /var/www/html/.env
+# COPY docker/docker.env /var/www/html/.env
 
-RUN chown -R docker /var/www/html
+# RUN chown -R docker /var/www/html
 
 RUN \
 	rm -r "/var/www/html/storage/private_uploads" && ln -fs "/var/lib/snipeit/data/private_uploads" "/var/www/html/storage/private_uploads" \
@@ -93,7 +93,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Get dependencies
 USER docker
-RUN composer install --no-dev --working-dir=/var/www/html
+RUN composer install --working-dir=/var/www/html
 USER root
 
 ############### APPLICATION INSTALL/INIT #################

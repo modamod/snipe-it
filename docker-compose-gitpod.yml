@@ -5,14 +5,14 @@ services:
     build:
 
       context: .
-      dockerfile: Dockerfile.alpine
+      dockerfile: Dockerfile.workspace
       args:
         - APP_ENV=${APP_ENV}
     container_name: snipeit
     ports:
     - "8000:80"
     volumes:
-    - ./logs:/var/www/html/storage/logs
+    - .:/var/www/html
     depends_on:
     - mariadb
     - redis
